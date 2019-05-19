@@ -23,7 +23,7 @@ char *File_input(const char *in) {
 }
 
 void Partition(char str[], char sep[]) {
-  printf("Результат разбиения :\n");
+  printf("Палиндромами являются:\n");
   // Выделение первой части строки
   char *istr;
   istr = strtok(str, sep);
@@ -32,10 +32,27 @@ void Partition(char str[], char sep[]) {
 
     if (Palindrom(istr)) {
       printf("%s%s%s\n", KGRN, istr, KWHT);
-    } else {
-      printf("%s\n", istr);
-    }
+    } // else {
+      // printf("%s\n", istr);
+    //}
     // Выделение очередной части строки
     istr = strtok(NULL, sep);
   }
+}
+
+char *Transformation(char *Array, char KAVO[]) {
+  int k, i, j;
+  for (k = 0; k < strlen(Array); k++) {
+    if (Array[k] == '\n') {
+      Array[k] = ' ';
+    }
+  }
+  for (k = 0; KAVO[k] != '\0'; k++) {
+    for (i = j = 0; Array[i] != '\0'; i++)
+      if (Array[i] != KAVO[k]) {
+        Array[j++] = Array[i];
+      }
+    Array[j] = '\0';
+  }
+  return Array;
 }

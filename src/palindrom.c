@@ -10,8 +10,9 @@ int Palindrom(char *istr) {
   end--; // отступаем назад на один байт (от нулевого)
 
   for (; istr < end; istr++, end--) {
-    if (*istr != *end)
+    if (*istr != *end){
       return 0;
+    }
   }
 
   return 1;
