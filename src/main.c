@@ -1,6 +1,6 @@
 #include "palindrom.h"
 #include "process.h"
-//#include "strings.h"
+#include "strings.h"
 
 #include <stdio.h>
 
@@ -8,25 +8,24 @@ int main(int argc, char *argv[]) {
   char *Array = File_input(argv[1]);
   int k;
   printf("Текст: \n");
-  for (k = 0; k < strlen(Array); k++) {
+  for (k = 0; k < slen(Array); k++) {
     printf("%c", Array[k]);
   }
 
-  for (k = 0; k < strlen(Array); k++) {
+  for (k = 0; k < slen(Array); k++) {
     Array[k] = tolower(Array[k]);
   }
-
   /////////////////////////////////////////
 
-  char Buffer[strlen(Array)];
-  for (k = 0; k < strlen(Array); k++) {
+  char Buffer[slen(Array)];
+  for (k = 0; k < slen(Array); k++) {
     Buffer[k] = Array[k];
   }
   char sep[10] = ".:,?!";
   char bomba[2] = " ";
   char *Result = Transformation(Buffer, sep);
   printf("\nПосле ПЕРВОГО преобразования: \n");
-  for (k = 0; k < strlen(Result); k++) {
+  for (k = 0; k < slen(Result); k++) {
     printf("%c", Result[k]);
   }
   printf("\n");
@@ -34,15 +33,15 @@ int main(int argc, char *argv[]) {
 
   ///////////////////////////////////////////////////
 
-  for (k = 0; k < strlen(Array); k++) {
+  for (k = 0; k < slen(Array); k++) {
     Buffer[k] = Array[k];
   }
   char sep2[10] = " ,:?!";
   char bomba2[2] = ".";
-  *Result = Transformation(Buffer, sep2);
+  Result = Transformation(Buffer, sep2);
   Buffer[0] = Array[0];
   printf("\nПосле ВТОРОГО преобразования: \n");
-  for (k = 0; k < strlen(Result); k++) {
+  for (k = 0; k < slen(Result); k++) {
     printf("%c", Result[k]);
   }
   printf("\n");
@@ -50,14 +49,14 @@ int main(int argc, char *argv[]) {
 
   ///////////////////////////////////////////////////
 
-  for (k = 0; k < strlen(Array); k++) {
+  for (k = 0; k < slen(Array); k++) {
     Buffer[k] = Array[k];
   }
   char sep3[10] = " .,:?!";
-  *Result = Transformation(Buffer, sep3);
+  Result = Transformation(Buffer, sep3);
   Buffer[0] = Array[0];
   printf("\nПосле ТРЕТЬЕГО преобразования: \n");
-  for (k = 0; k < strlen(Result); k++) {
+  for (k = 0; k < slen(Result); k++) {
     printf("%c", Result[k]);
   }
   printf("\n");

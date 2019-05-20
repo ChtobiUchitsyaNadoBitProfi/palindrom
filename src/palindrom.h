@@ -9,6 +9,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+char text[100];
+
+void findLongestPalindromicString();
+int min(int a, int b);
 int Palindrom(char *istr);
 
 #endif
